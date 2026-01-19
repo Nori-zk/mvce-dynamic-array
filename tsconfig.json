@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig-root.json",
+  "compilerOptions": {
+    "outDir": "build",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "rootDir": "src",
+    "baseUrl": ".", 
+    "isolatedModules": true,
+    "paths": {
+      "o1js": ["./node_modules/o1js"],
+      "*": ["*", "src/*", "./node_modules/*"]
+    }
+  },
+  "include": ["./src"],
+}
