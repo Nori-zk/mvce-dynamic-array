@@ -13,7 +13,7 @@ We wish to remove MinaAttestations as the functionality is best served by the `o
 
 `merkleLeafAttestorGenerator()` is the core abstraction with inputs:
 
-- A custom max `treeDepth` which defines the depth of the Merkle tree (i.e., up to 2^treeDepth leaves).
+- A custom max `treeDepth` which defines the max depth of the Merkle tree (i.e., up to 2^treeDepth leaves).
 - A user-definable `provableLeafType` data structure (the particular Struct `TLeaf` - a generic, for which its member fields can be turned into a single hash - for a particular leaf via some dedicated function)
 - A `leafContentsHasher`, a function which takes a `TLeaf`'s fields, converts them to Bytes, and then creates a set of Fields from them (while being careful not to overload the Field prime modulo) and finally takes this set of Fields and passes them through `Poseidon.hash` to yield a single Field representing the leaf's contents.
 
