@@ -90,7 +90,11 @@ Moreover both of these folders have an identical spec file `merkleLeafAttestor.s
 
 **RESULT FAILS!**
 
-The failure occurs during the ZKProgram compilation stage (`MerkleTreeLeafAttestor.compile()`), not during proof generation. The `assert_equal: 0 != 1` error indicates a constraint mismatch when the circuit is being compiled, suggesting a difference in how `o1js`'s `DynamicArray` generates constraints compared to `mina-attestations`'s implementation.
+The failure occurs during the ZKProgram compilation stage (`MerkleTreeLeafAttestor.compile()`), not during proof generation. The `assert_equal: 0 != 1` error indicates a constraint mismatch when the circuit is being compiled.
+
+I suspect this line may be the cause:
+
+`const bitPath = index.value.toBits(path.capacity);`
 
 ```
  FAIL  src/merkle-attestor-o1js/merkleLeafAttestor.spec.ts (8.527 s)
