@@ -2,9 +2,9 @@
 
 DynamicArray is now a member of o1js. We should be able to deprecate the use of it from the Mina Attestations library and use it directly.
 DynamicArray is an important primitive Nori uses to verify Merkle tree path witnesses and ensure that calculated roots
-match. The reason for the re-implementation compared to using MerkleSet within o1js is that we needed to generate the Merkle root in Rust
+match. The reason for the re-implementation compared to using MerkleTree within o1js is that we needed to generate the Merkle root in Rust
 and only verify the witness in o1js. It appeared easier to test by creating uniform implementations which could be co-compared on each side
-directly rather than porting all of the Merkle logic to Rust. In short, it was simpler to re-implement the dedicated feature than to re-implement
+directly rather than porting all of the Merkle(Tree/Set..etc) logic to Rust. In short, it was simpler to re-implement the dedicated feature than to re-implement
 the ensemble of functionality.
 
 We wish to remove MinaAttestations as the functionality is best served by the `o1js` core library and to remove `mina-attestations` from our upcoming audit scope.
